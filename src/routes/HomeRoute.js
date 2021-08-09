@@ -9,7 +9,9 @@ import './HomeRoute.scss';
 
 const HomeRoute = () => {
 
-
+    const conflictFunc = () => {
+        console.log('Hello conflict, :)');
+    }
 
     return (
         <div className="content">
