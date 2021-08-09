@@ -1,5 +1,5 @@
 const { merge } = require('webpack-merge');
-
+const paths = require('./webpack.path');
 const common = require('./webpack.common');
 
 const config = {
@@ -7,7 +7,7 @@ const config = {
     devServer: {
         open: true,
         hot: true,
-        // inline: false,
+        inline: true,
         port: 3000,
         stats: 'minimal',
         historyApiFallback: true,
