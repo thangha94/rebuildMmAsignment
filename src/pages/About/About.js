@@ -14,6 +14,8 @@ const About = () => {
     }
 
     useEffect(() => {
+        let str = 'I do not want delete it and add str var';
+        let mount = false;
         const resizeHandle = () => {
             setSum(122);
             console.dir(spanRef.current.innerHTML = '123');
