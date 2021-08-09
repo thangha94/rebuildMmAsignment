@@ -8,6 +8,11 @@ const Home = lazy(() => import('../pages/Home/Home'));
 import './HomeRoute.scss';
 
 const HomeRoute = () => {
+
+    const conflictFunc = () => {
+        console.log('Hello conflict');
+    }
+
     return (
         <div className="content">
             <Suspense fallback={<div>Loading...</div>}>

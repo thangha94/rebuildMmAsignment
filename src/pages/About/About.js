@@ -25,6 +25,10 @@ const About = () => {
         };
     }, [])
 
+    const handleClick = () => {
+        console.log('Hello World');
+    }
+
     return (
         <div className="about">
             SUM: {sum}
