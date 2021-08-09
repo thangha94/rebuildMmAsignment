@@ -44,6 +44,13 @@ module.exports = {
                     },
                 ],
             },
+            {
+                test: /\.(svg)(\?\S*)?$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: './assets/images/[name].[ext]',
+                },
+            }
             // {
             //     test: /\.css$/i,
             //     use: ['style-loader', 'css-loader'],

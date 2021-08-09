@@ -1,0 +1,171 @@
+@import '../../styles/config';
+.gif {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-between;
+  overflow: hidden;
+
+  position: relative;
+  height: 200px;
+  padding: 0.5rem;
+  cursor: pointer;
+
+  &.selected {
+    cursor: auto;
+    .gif__img-container {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 9999;
+      padding: 0;
+      img {
+        border-radius: 0;
+      }
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 25px;
+        height: 25px;
+
+        background: $colorUserTitle;
+        display: block;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.5s;
+
+        &:hover {
+          border: 2px solid white;
+        }
+        &:before {
+          position: absolute;
+          content: '';
+          width: 15px;
+          height: 2px;
+          background: white;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+        &:after {
+          position: absolute;
+          content: '';
+          width: 15px;
+          height: 2px;
+          background: white;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  .gif__img-container {
+    background-color: $backgroundColorItem;
+    width: 100%;
+    height: calc(200px - 2rem);
+    min-height: calc(200px - 2rem);
+    padding: 0.5rem;
+    border-radius: 2px;
+    transition: 0.1s;
+
+    > img {
+      width: 100%;
+      height: calc(100%);
+      border-radius: 2px;
+    }
+  }
+
+  .gif__user-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    height: 2rem;
+    min-height: 2rem;
+    padding: 0.5rem;
+
+    > img {
+      height: 1.4rem;
+      width: 1.4rem;
+      border-radius: 50%;
+      border: 2px solid $backgroundColorItem;
+    }
+
+    .gif__user-name {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      color: $colorUserTitle;
+      font-weight: 500;
+      margin-left: 0.2rem;
+    }
+  }
+
+  // Handle Animation
+  $colorAnimation: $colorUserTitle;
+  $widthAnimation: 0.2rem;
+  .gif__animation {
+    position: absolute;
+    display: block;
+    &.first {
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: $widthAnimation;
+      background: linear-gradient(90deg, transparent, $colorAnimation);
+    }
+    &.second {
+      top: -100%;
+      right: 0;
+      width: $widthAnimation;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, $colorAnimation);
+    }
+    &.third {
+      bottom: 0;
+      right: -100%;
+      width: 100%;
+      height: $widthAnimation;
+      background: linear-gradient(270deg, transparent, $colorAnimation);
+    }
+    &.fourth {
+      bottom: -100%;
+      left: 0;
+      width: $widthAnimation;
+      height: 100%;
+      background: linear-gradient(360deg, transparent, $colorAnimation);
+    }
+  }
+  &:hover {
+    .gif__animation {
+      &.first {
+        left: 100%;
+        transition: 1s;
+      }
+      &.third {
+        right: 100%;
+        transition: 1s;
+        transition-delay: 0.5s;
+      }
+      &.second {
+        top: 100%;
+        transition: 1s;
+        transition-delay: 0.25s;
+      }
+      &.fourth {
+        bottom: 100%;
+        transition: 1s;
+        transition-delay: 0.75s;
+      }
+    }
+  }
+}

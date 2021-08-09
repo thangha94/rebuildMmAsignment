@@ -1,0 +1,33 @@
+@import '../../styles/config';
+.home {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1000px;
+
+  width: 100%;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  background-color: $backgroundColorMain;
+  padding: 15px 5px;
+}
+
+@include media-sm {
+  .gif {
+    flex: 48%;
+  }
+}
+
+@include media-md {
+  .gif {
+    flex: 30%;
+  }
+}
+
+@include media-lg {
+  .gif {
+    flex: 23%;
+  }
+}

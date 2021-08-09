@@ -1,0 +1,25 @@
+$backgroundColorMain: #e8e8e8;
+$backgroundColorItem: #fff;
+$colorUserTitle: #039ccf;
+$colorGifInfo: #a9a9a9;
+$gifHeigh: 200px;
+
+// CSS for Mobile
+@mixin media-sm {
+  @media screen and(max-width: 568px) {
+    @content;
+  }
+}
+// CSS for Tablet
+@mixin media-md {
+  @media screen and(min-width: 568px) {
+    @content;
+  }
+}
+
+// CSS for Desktop
+@mixin media-lg {
+  @media screen and(min-width: 768px) {
+    @content;
+  }
+}
