@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import User from '../../images/user.svg';
 import './GifItem.scss';
 
-const GifItem = ({ data, refData, gifClass, onOpenFullScreen, onCloseFullScreen }) => {
+const GifItem = forwardRef(({ data, refData, gifClass, onOpenFullScreen, onCloseFullScreen }, ref) => {
     const onCloseImage = (e) => {
         e.stopPropagation();
         onCloseFullScreen();
     }
     return (
-        <div data-testid="gif" onClick={onOpenFullScreen} className={`gif ${gifClass}`} ref={refData}>
+        <div data-testid="gif" onClick={onOpenFullScreen} className={`gif ${gifClass}`} ref={ref}>
             <div className="gif__img-container">
                 <span data-testid="gif-close" className="close-btn" onClick={onCloseImage}></span>
                 <img alt={data.user ? data.user.display_name : 'No data'} src={data.url} alt="" />
@@ -27,6 +27,6 @@ const GifItem = ({ data, refData, gifClass, onOpenFullScreen, onCloseFullScreen 
             <span className="gif__animation fourth"></span>
         </div>
     );
-};
+});
 
 export default GifItem;

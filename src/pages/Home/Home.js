@@ -70,7 +70,8 @@ const Home = () => {
             onOpenFullScreen={() => { setSelectedIndex(index); }}
             gifClass={getClassName(index)}
             key={`gif_${index}`}
-            refData={lastGifElement}
+            // ref={lastGifElement}
+            ref={lastGifElement}
             data={item} />
         } else {
           // without function infinite scroll
