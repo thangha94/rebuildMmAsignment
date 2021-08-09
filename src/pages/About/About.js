@@ -14,7 +14,6 @@ const About = () => {
     }
 
     useEffect(() => {
-        let mount = true;
         const resizeHandle = () => {
             setSum(122);
             console.dir(spanRef.current.innerHTML = '123');
