@@ -1,9 +1,10 @@
 import React, { forwardRef } from 'react';
+import PropTypes from 'prop-types';
 
 import User from '../../images/user.svg';
 import './GifItem.scss';
 
-const GifItem = forwardRef(({ data, refData, gifClass, onOpenFullScreen, onCloseFullScreen }, ref) => {
+const GifItem = forwardRef(({ data, gifClass, onOpenFullScreen, onCloseFullScreen }, ref) => {
     const onCloseImage = (e) => {
         e.stopPropagation();
         onCloseFullScreen();
@@ -28,5 +29,19 @@ const GifItem = forwardRef(({ data, refData, gifClass, onOpenFullScreen, onClose
         </div>
     );
 });
+
+GifItem.propTypes = {
+    data: PropTypes.object,
+    refData: PropTypes.any,
+    gifClass: PropTypes.string,
+    onOpenFullScreen: PropTypes.func,
+    onCloseFullScreen: PropTypes.func,
+}
+
+GifItem.defaultProps = {
+    data: {},
+    refData: undefined,
+    gifClass: '',
+}
 
 export default GifItem;
